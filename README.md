@@ -16,20 +16,72 @@ Replace this paragraph with your own summary of what your version does.
 ---
 
 ## How The System Works
-
 Explain your design in plain language.
+
+Real-world recommendation systems estimate what a user is most likely to enjoy by comparing user preferences with item features, then ranking items by a predicted match score. In this simulation, I prioritize interpretability and vibe alignment over complexity: songs are scored based on how closely they match a user's preferred genre and mood, plus how near they are to a target energy profile.
+
+Features used in this simulation:
+
+- `Song` features: `genre`, `mood`, `energy`, `tempo_bpm`, `valence`, `danceability`, `acousticness`
+- `UserProfile` features: `favorite_genre`, `favorite_mood`, `target_energy`, `likes_acoustic`
 
 Some prompts to answer:
 
 - What features does each `Song` use in your system
   - For example: genre, mood, energy, tempo
+
+genre, mood, energy, temp_bpm, valence, danceability, acousticness 
+
 - What information does your `UserProfile` store
+
+ favorite_genre, favorite_mood, target_energy, likes_acoustic 
+
 - How does your `Recommender` compute a score for each song
+
+
 - How do you choose which songs to recommend
 
 You can include a simple diagram or bullet list if helpful.
 
----
+flowchart LR
+    A[Input: User Prefs]
+    A1[favorite_genre]
+    A2[favorite_mood]
+    A3[target_energy]
+    A4[likes_acoustic]
+
+    B[Process: The Loop]
+    C[For each song in songs.csv]
+    D[Compare genre to favorite_genre]
+    E[Compare mood to favorite_mood]
+    F[Measure energy closeness]
+    G[Optional: tempo, valence, danceability, acousticness]
+    H[Compute total score]
+    I[Store song + score]
+
+    J[Output: The Ranking]
+    K[Sort all songs by score]
+    L[Return Top K recommendations]
+    M[Optional: short explanation]
+
+    A --> A1
+    A --> A2
+    A --> A3
+    A --> A4
+
+    A1 --> B
+    A2 --> B
+    A3 --> B
+    A4 --> B
+
+    B --> C --> D --> E --> F --> G --> H --> I --> J --> K --> L --> M
+
+**Algorithm Recipe** 
+- +2.0 for genre match 
+- +1.0 for mood match
+- up to +2.0 for energy closeness 
+
+- returns the top k songs sorted by score 
 
 ## Getting Started
 
