@@ -16,8 +16,20 @@ def main() -> None:
     songs = load_songs("data/songs.csv")
     print(f"Loaded songs: {len(songs)}") 
 
-    # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    # Distinct user profiles for quick experiments.
+    user_profiles = {
+        "High-Energy Pop": {"genre": "pop", "mood": "happy", "energy": 0.9},
+        "Chill Lofi": {"genre": "lofi", "mood": "chill", "energy": 0.35},
+        "Deep Intense Rock": {"genre": "rock", "mood": "intense", "energy": 0.92},
+        
+        "Case-Mismatch Trap": {"genre": "Pop", "mood": "Happy", "energy": 0.82},
+        "Out-of-Range Energy": {"genre": "pop", "mood": "happy", "energy": 9.0},
+    }
+
+    # Pick one profile to run.
+    profile_name = "High-Energy Pop"
+    user_prefs = user_profiles[profile_name]
+    print(f"\nProfile: {profile_name}")
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
 

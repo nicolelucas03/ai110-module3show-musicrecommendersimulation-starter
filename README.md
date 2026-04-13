@@ -84,8 +84,12 @@ flowchart LR
 - returns the top k songs sorted by score 
 
 
-**Screenshot of Formatted Output** 
+**Screenshot of Outputs** 
+- Formatted Songs in Terminal
 ![Alt Text](formatted_output_AIEng.png) 
+
+-Output for Adversarial/Edge Cases: 
+![Alt Text](mismatch_output_AIEng.png) 
 
 ## Getting Started
 
