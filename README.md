@@ -83,6 +83,10 @@ flowchart LR
 
 - returns the top k songs sorted by score 
 
+
+**Screenshot of Formatted Output** 
+![Alt Text](formatted_output_AIEng.png) 
+
 ## Getting Started
 
 ### Setup
